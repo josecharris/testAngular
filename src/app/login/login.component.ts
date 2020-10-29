@@ -8,7 +8,6 @@ import { LoginService } from './../LoginService.service';
   providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
-
   mailUser = '';
   passUser = '';
 
@@ -18,7 +17,9 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginUser(){
-    this.loginService.realizarLogin(this.mailUser, this.passUser);
+    this.loginService.onLogin(this.mailUser, this.passUser).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }
