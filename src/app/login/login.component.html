@@ -1,0 +1,20 @@
+<img src="assets\panel.png" style="position: fixed;width: 100%; height: 100%;">
+<div class="container">
+  <div class="login card">
+    <h5 class="card-header">Logo</h5>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Correo electrónico</label>
+          <input type="text" class="form-control" id="username" aria-describedby="userh"
+          placeholder="Correo electrónico" [(ngModel)]="mailUser">
+        </div>
+        <div class="form-group">
+          <label for="examplePass">Contraseña</label>
+          <input type="password" class="form-control" id="password" aria-describedby="userh"
+          placeholder="Contraseña" [(ngModel)]="passUser">
+        </div>
+        <button class="button_grey" (click)="onLoginUser()">Ingresar</button><br>
+        <a href="#"><p style="text-align: center;">¿Olvidaste tu contraseña?</p></a>
+      </div>
+  </div>
+</div>

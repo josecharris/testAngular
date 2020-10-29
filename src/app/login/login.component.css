@@ -1,0 +1,28 @@
+.container{
+  float: left;
+}
+
+.login{
+  background-color: white;
+  position: absolute;
+  top: 38%;
+  left: 85%;
+  width: 23%;
+  height: 65%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+
+.button_grey{
+  background-color: gray;
+  color: white;
+  border-radius: 10px;
+  width: 90%;
+  height: 35px;
+  margin-top: 8px;
+}
+
+.button_grey:hover{
+  background-color: white;
+  color: gray;
+}
