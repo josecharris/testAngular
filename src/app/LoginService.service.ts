@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { LoginInterface } from './models/login.interface';
 import { ResponseInterface } from './models/response.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
