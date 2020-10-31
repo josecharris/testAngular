@@ -60,3 +60,15 @@
   width: 14%;
   margin-top: -3%;
 }
+
+.products{
+  overflow: hidden;
+	width: 100%;
+}
+
+.config{
+  margin: 5px;
+  width: 30%;
+  height: 20%;
+  float: left;
+}

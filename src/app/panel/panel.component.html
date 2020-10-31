@@ -33,5 +33,37 @@
     <div>
       <input type="text" class="form-control find" placeholder="Busca tu producto">
     </div>
+
+    <div class="products">
+
+      <!-- Card -->
+      <div *ngFor='let producto of products; let i = index'>
+        <div class="card config">
+          <!-- Card image -->
+          <div class="view overlay">
+            <img class="card-img-top" src="{{producto.url}}"
+              alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+          <!-- Card content -->
+          <div class="card-body">
+
+            <!-- Title -->
+            <h4 class="card-title">{{producto.code}}</h4>
+            <!-- Text -->
+            <p class="card-text">Nombre: {{ producto.name }}</p>
+            <p class="card-text">Valor: {{ producto.value }}</p>
+            <p class="card-text">Impuestos: {{ producto.taxes }}</p>
+            <!-- Buttons -->
+            <button type="button" class="btn btn-info">Editar</button>
+            <button type="button" class="btn btn-danger">Borrar</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card -->
+    </div>
   </div>
 </div>
