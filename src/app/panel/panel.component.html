@@ -28,7 +28,7 @@
 
 <div class="panel-container">
   <div class="card">
-    <p class="title-product"><strong>Productos&nbsp;</strong><img src="assets\add.png" alt=""></p>
+    <p class="title-product" (click)='mostrar()'><strong>Productos&nbsp;</strong><img src="assets\add.png" alt=""></p>
     <!-- Medium input -->
     <div>
       <input type="text" class="form-control find" placeholder="Busca tu producto">
@@ -41,7 +41,7 @@
         <div class="card config">
           <!-- Card image -->
           <div class="view overlay">
-            <img class="card-img-top" src="{{producto.url}}"
+            <img class="card-img-top" src="{{ producto.url }}"
               alt="Card image cap">
             <a href="#!">
               <div class="mask rgba-white-slight"></div>
@@ -58,12 +58,19 @@
             <p class="card-text">Valor: {{ producto.value }}</p>
             <p class="card-text">Impuestos: {{ producto.taxes }}</p>
             <!-- Buttons -->
-            <button type="button" class="btn btn-info">Editar</button>
-            <button type="button" class="btn btn-danger">Borrar</button>
+            <button type="button" class="btn btn-info button-blue">Editar</button>
+            <button type="button" class="btn btn-danger button-red">Borrar</button>
           </div>
         </div>
       </div>
       <!-- Card -->
     </div>
   </div>
+</div>
+
+<div id="sidebar" class="sidebar">
+  <a href="#" class="boton-cerrar" (click)="ocultar()">&times;</a>
+  <ul class="menu">
+
+  </ul>
 </div>
