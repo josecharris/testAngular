@@ -11,6 +11,8 @@ import { ProductService } from './../services/product.service';
 export class PanelComponent implements OnInit {
 
   findProduct: string;
+  showPanelAdd: boolean = false;
+
   products: ProductModel[] = [
     new ProductModel('7777', 'B1', 1, 'aaaaa', 'https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg'),
     new ProductModel('8888', 'B2', 2, 'bbbbb', 'https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg'),

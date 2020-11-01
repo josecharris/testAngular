@@ -1,0 +1,20 @@
+.title-product{
+  color: #00BDDE;
+  text-align: center;
+}
+
+input[type="checkbox"]:checked + label{
+  color: #00BDDE;
+}
+
+.bt{
+  border-radius: 10px;
+  background-color: #FAC54B;
+  color: white;
+  width: 90%;
+}
+
+.bt:hover{
+  background-color: white;
+  color: #FAC54B;
+}
