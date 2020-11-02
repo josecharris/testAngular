@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ProductModel } from './../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,20 +9,33 @@ import { ProductModel } from './../models/product.model';
 export class ProductService {
 
   url = 'https://blitz-dev1.azurewebsites.net/ms-e-bill/api/product?page=1';
+  urlAdd = 'https://blitz-dev1.azurewebsites.net/ms-e-bill/api/product/';
+
+  token = localStorage.getItem('authToken');
 
   constructor(private http: HttpClient) { }
 
-  addProduct(){
-    console.log('Agregar');
+  addProduct(codep, namep, url, valuee, taxes): Observable<any>{
+    const headers = new HttpHeaders()
+             .set('content-type', 'application/json')
+             .set('x-application-id', 'c14ba89d-4e8a-4ffc-be9c-77e9a207914b')
+             .set('Authorization', this.token);
+    const body = {
+              code: codep,
+              name: namep,
+              urlImage: url,
+              value: valuee,
+              tax: taxes
+    };
+    return this.http.post<any>(this.urlAdd, body, { headers: headers });
   }
 
   getProducts(): Observable<any>{
-    let dato = localStorage.getItem('authToken');
     const httpOptions = {
       headers: new HttpHeaders({
         'content-type': 'application/json',
         'x-application-id': 'c14ba89d-4e8a-4ffc-be9c-77e9a207914b',
-        'Authorization': dato
+        'Authorization': this.token
       })
   };
 

@@ -1,3 +1,4 @@
+import { ProductService } from './../services/product.service';
 import { TaxesModel } from './../models/taxes.model';
 import { TaxesService } from '../services/taxes.service';
 import { Component, OnInit } from '@angular/core';
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
   styleUrls: ['./addproduct.component.css'],
-  providers: [TaxesService]
+  providers: [TaxesService, ProductService]
 })
 export class AddproductComponent implements OnInit {
 
@@ -25,7 +26,7 @@ export class AddproductComponent implements OnInit {
 
   tax: TaxesModel[] = [];
 
-  constructor(private taxesService: TaxesService) { }
+  constructor(private taxesService: TaxesService, private productService: ProductService) { }
 
   ngOnInit(): void {
     this.taxesService.getTaxes().subscribe(data => {
@@ -37,7 +38,16 @@ export class AddproductComponent implements OnInit {
   }
 
   addProduct(): void{
+    const inpCode = (<HTMLInputElement>document.getElementById('code'));
+    const inpName = (<HTMLInputElement>document.getElementById('name'));
+    const url = 'wwww.google.com';
+    const inpValue = (<HTMLInputElement>document.getElementById('value'));
 
+    try {
+      this.productService.addProduct(inpCode, inpName, url, inpValue, this.chain);
+    } catch (error) {
+      alert('Error al guardar el producto.');
+    }
   }
 
   changeStatusTaxes(): void{

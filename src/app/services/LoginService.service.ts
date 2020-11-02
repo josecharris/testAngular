@@ -23,8 +23,6 @@ export class LoginService{
               Email: mailuser,
               Password: password,
     };
-    this.http.post(this.url, body, { headers: headers }).subscribe(data => {
-    });
     return this.http.post<ResponseInterface>(this.url, body, { headers: headers });
   }
 }

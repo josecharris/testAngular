@@ -1,4 +1,4 @@
-<form (ngSubmit)="addProduct()" #f="ngForm">
+<form (ngSubmit)="f.form.valid && addProduct()" #f="ngForm">
   <p class="title-product"><strong>Crear producto</strong></p>
   <div class="product-fields">
     <div class="form-group">
