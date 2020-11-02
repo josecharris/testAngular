@@ -34,20 +34,25 @@ export class AddproductComponent implements OnInit {
         let obj = record as TaxesModel;
         this.tax.push(obj);
       });
-    });
+    },
+    error => { alert('Error al consumir los impuestos del producto.'); }
+    );
   }
 
   addProduct(): void{
-    const inpCode = (<HTMLInputElement>document.getElementById('code'));
-    const inpName = (<HTMLInputElement>document.getElementById('name'));
+    const inpCode = (<HTMLInputElement>document.getElementById('code')).value;
+    const inpName = (<HTMLInputElement>document.getElementById('name')).value;
     const url = 'wwww.google.com';
-    const inpValue = (<HTMLInputElement>document.getElementById('value'));
+    const inpValue = (<HTMLInputElement>document.getElementById('value')).value;
 
-    try {
-      this.productService.addProduct(inpCode, inpName, url, inpValue, this.chain);
-    } catch (error) {
-      alert('Error al guardar el producto.');
-    }
+    this.productService.addProduct(inpCode, inpName, url, inpValue, this.chain).subscribe(
+      response => { alert('Se agregó el producto.'); }
+      ,
+      error => {
+        console.log('Error al agregar producto ' + error);
+      }
+    );
+
   }
 
   changeStatusTaxes(): void{

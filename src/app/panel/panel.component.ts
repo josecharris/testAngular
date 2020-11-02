@@ -23,6 +23,8 @@ export class PanelComponent implements OnInit {
         let objeto = record as ProductModel;
         this.products.push(objeto);
       });
+    }, error => {
+      alert('Error');
     });
   }
 
