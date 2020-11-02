@@ -11,18 +11,19 @@ import { ProductService } from './../services/product.service';
 export class PanelComponent implements OnInit {
 
   findProduct: string;
-  showPanelAdd: boolean = false;
+  showPanelAdd = false;
 
-  products: ProductModel[] = [
-    new ProductModel('7777', 'B1', 1, 'aaaaa', 'https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg'),
-    new ProductModel('8888', 'B2', 2, 'bbbbb', 'https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg'),
-    new ProductModel('9999', 'B3', 3, 'ccccc', 'https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg'),
-    new ProductModel('0000', 'B4', 4, 'ddddd', 'https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg'),
-  ];
+  products: ProductModel[] = [];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.productService.getProducts().subscribe(data => {
+      data.results.map((record) => {
+        let objeto = record as ProductModel;
+        this.products.push(objeto);
+      });
+    });
   }
 
 

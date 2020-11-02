@@ -41,7 +41,7 @@
         <div class="card config">
           <!-- Card image -->
           <div class="view overlay">
-            <img class="card-img-top" src="{{ producto.url }}"
+            <img class="card-img-top size-image" src="{{ producto.url_image }}"
               alt="Card image cap">
             <a href="#!">
               <div class="mask rgba-white-slight"></div>
@@ -52,11 +52,10 @@
           <div class="card-body">
 
             <!-- Title -->
-            <h4 class="card-title">{{producto.code}}</h4>
+            <p class="card-title centro"><strong>{{ producto.name }}</strong></p>
             <!-- Text -->
-            <p class="card-text">Nombre: {{ producto.name }}</p>
-            <p class="card-text">Valor: {{ producto.value }}</p>
-            <p class="card-text">Impuestos: {{ producto.taxes }}</p>
+            <p class="card-text centro">{{ producto.code }}</p>
+            <p class="card-text centro">Lote:</p>
             <!-- Buttons -->
             <button type="button" class="btn btn-info button-blue">Editar</button>
             <button type="button" class="btn btn-danger button-red">Borrar</button>

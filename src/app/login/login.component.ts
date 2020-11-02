@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   onLoginUser(): void{
     this.loginService.onLogin(this.mailUser, this.passUser).subscribe(data => {
-      console.log(data);
+      console.log(String(data));
+      localStorage.setItem('authToken', String(data));
     });
   }
 

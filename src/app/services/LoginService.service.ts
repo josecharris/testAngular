@@ -9,9 +9,10 @@ import { Observable } from 'rxjs';
 
 export class LoginService{
 
-  constructor(private http: HttpClient){}
-
   url = 'https://blitz-dev1.azurewebsites.net/ms-user/api/users/login';
+  response: string;
+
+  constructor(private http: HttpClient){}
 
   onLogin(mailuser, password): Observable<ResponseInterface>{
     const headers = new HttpHeaders()
@@ -22,6 +23,8 @@ export class LoginService{
               Email: mailuser,
               Password: password,
     };
+    this.http.post(this.url, body, { headers: headers }).subscribe(data => {
+    });
     return this.http.post<ResponseInterface>(this.url, body, { headers: headers });
   }
 }
