@@ -1,6 +1,8 @@
 import { ProductModel } from './../models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './../services/product.service';
+import {Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-panel',
@@ -15,7 +17,7 @@ export class PanelComponent implements OnInit {
 
   products: ProductModel[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(data => {
@@ -26,6 +28,11 @@ export class PanelComponent implements OnInit {
     }, error => {
       alert('Error');
     });
+  }
+
+  logout(): void{
+    this.router.navigate(['']);
+    localStorage.setItem('authToken', 'logout');
   }
 
 
