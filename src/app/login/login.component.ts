@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
 
   onLoginUser(): void{
     this.loginService.onLogin(this.mailUser, this.passUser).subscribe(data => {
-      console.log(String(data));
       localStorage.setItem('authToken', String(data));
       this.router.navigate(['panel']);
+      history.forward();
     },
     error => { alert('Error al ingresar al sistema.'); });
   }

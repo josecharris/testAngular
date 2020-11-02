@@ -180,3 +180,12 @@ h1 {
 #cerrar {
   display:none;
 }
+
+.configb{
+  background-color: white;
+  float: right;
+  margin-top: -3%;
+  margin-right: 3.5%;
+  cursor: pointer;
+}
+
