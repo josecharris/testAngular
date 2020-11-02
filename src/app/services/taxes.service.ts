@@ -1,23 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ProductModel } from './../models/product.model';
+import { ProductModel } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ProductService {
+export class TaxesService {
 
-  url = 'https://blitz-dev1.azurewebsites.net/ms-e-bill/api/product?page=1';
+  url = 'https://blitz-dev1.azurewebsites.net/ms-e-bill/api/taxes';
 
   constructor(private http: HttpClient) { }
 
-  addProduct(){
-    console.log('Agregar');
-  }
-
-  getProducts(): Observable<any>{
+  getTaxes(): Observable<any>{
     let dato = localStorage.getItem('authToken');
     const httpOptions = {
       headers: new HttpHeaders({

@@ -15,26 +15,17 @@
     </div>
     <div class="form-group">
       <label for="taxes">Impuestos</label>
-      <input type="text" class="form-control" id="taxes" aria-describedby="userh" (click)="changeStatusTaxes()" disabled>
+      <input type="text" class="form-control" id="taxes" aria-describedby="userh" (click)="changeStatusTaxes()">
     </div>
     <div *ngIf="showTaxes">
-      <!-- Default unchecked -->
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="chkIva69" (click)="changeStatusS1()">
-        <label class="custom-control-label" for="chkIva69">IVA 69</label>
+      <div *ngFor="let taxs of tax; let i=index">
+        <!-- Default unchecked -->
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="{{ taxs.id }}" (click)="changeStatus(taxs.id)">
+          <label class="custom-control-label" for="{{ taxs.id }}">{{taxs.name}}</label>
+        </div>
       </div>
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="chkIva68" (click)="changeStatusS2()">
-        <label class="custom-control-label" for="chkIva68">IVA 68</label>
-      </div>
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="chkIva67" (click)="changeStatusS3()">
-        <label class="custom-control-label" for="chkIva67">IVA 67</label>
-      </div>
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="chkIva6" (click)="changeStatusS4()">
-        <label class="custom-control-label" for="chkIva6">IVA 6</label>
-      </div>
+
     </div>
     <button type="button" class="btn btn-warning bt">Crear</button>
 

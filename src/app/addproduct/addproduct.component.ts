@@ -1,9 +1,12 @@
+import { TaxesModel } from './../models/taxes.model';
+import { TaxesService } from '../services/taxes.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
-  styleUrls: ['./addproduct.component.css']
+  styleUrls: ['./addproduct.component.css'],
+  providers: [TaxesService]
 })
 export class AddproductComponent implements OnInit {
 
@@ -20,9 +23,17 @@ export class AddproductComponent implements OnInit {
   showTaxes = false;
   chain = new Array();
 
-  constructor() { }
+  tax: TaxesModel[] = [];
+
+  constructor(private taxesService: TaxesService) { }
 
   ngOnInit(): void {
+    this.taxesService.getTaxes().subscribe(data => {
+      data.results.map((record) => {
+        let obj = record as TaxesModel;
+        this.tax.push(obj);
+      });
+    });
   }
 
   changeStatusTaxes(): void{
@@ -33,7 +44,7 @@ export class AddproductComponent implements OnInit {
 
     this.isSelected1 = !this.isSelected1;
     if (this.isSelected1){
-      this.chain.push('IVA 69');
+      this.chain.push('1');
     }else if (this.chain.length !== 0){
       this.chain.splice(this.chain.indexOf('1'), 1);
     }
@@ -43,7 +54,7 @@ export class AddproductComponent implements OnInit {
     const inpTaxes = (<HTMLInputElement>document.getElementById('taxes'));
     this.isSelected2 = !this.isSelected2;
     if (this.isSelected2){
-      this.chain.push('IVA 68');
+      this.chain.push('2');
     }else if (this.chain.length !== 0){
       this.chain.splice(this.chain.indexOf('2'), 1);
     }
@@ -53,7 +64,7 @@ export class AddproductComponent implements OnInit {
     const inpTaxes = (<HTMLInputElement>document.getElementById('taxes'));
     this.isSelected3 = !this.isSelected3;
     if (this.isSelected3){
-      this.chain.push('IVA 67');
+      this.chain.push('3');
     }else if (this.chain.length !== 0){
       this.chain.splice(this.chain.indexOf('3'), 1);
     }
@@ -63,11 +74,28 @@ export class AddproductComponent implements OnInit {
     const inpTaxes = (<HTMLInputElement>document.getElementById('taxes'));
     this.isSelected4 = !this.isSelected4;
     if (this.isSelected4){
-      this.chain.push('IVA 6');
+      this.chain.push('4');
     }else if (this.chain.length !== 0){
       this.chain.splice(this.chain.indexOf('4'), 1);
     }
     inpTaxes.value = this.chain.join(',');
+  }
+
+  changeStatus(id){
+    switch (id){
+      case 4:
+        this.changeStatusS4();
+        break;
+      case 3:
+        this.changeStatusS3();
+        break;
+      case 2:
+        this.changeStatusS2();
+        break;
+      case 1:
+        this.changeStatusS1();
+        break;
+    }
   }
 
 
