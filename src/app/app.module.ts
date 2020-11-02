@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PanelComponent } from './panel/panel.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
+import { LoginGuardian } from './login/login.guardian.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { AddproductComponent } from './addproduct/addproduct.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [LoginGuardian],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

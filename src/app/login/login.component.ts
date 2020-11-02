@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
   onLoginUser(): void{
     this.loginService.onLogin(this.mailUser, this.passUser).subscribe(data => {
       localStorage.setItem('authToken', String(data));
+      console.log('L.S: ' + localStorage.getItem('authToken'));
       this.router.navigate(['panel']);
-      history.forward();
     },
     error => { alert('Error al ingresar al sistema.'); });
   }

@@ -1,5 +1,6 @@
 .vertical-menu {
-  width: 5%; /* Set a width if you like */
+  width: 5.5%; /* Set a width if you like */
+  min-width: 80px;
   height: 100%;
   min-height: 100vh;
   background-color: #01869E;
@@ -10,7 +11,8 @@
   color: white; /* Black text color */
   display: block; /* Make the links appear below each other */
   padding: 8px; /* Add some padding */
-  margin: 15px;
+  margin-left: 22%;
+  margin-top: 10%;
   text-decoration: none; /* Remove underline from links */
 }
 
@@ -30,7 +32,8 @@
 
 .cl{
   background-color: #00BDDE;
-  margin-top: 20px;
+  max-width: 45%;
+  min-width: 45%;
 }
 .clb{
   background-color: #01869E;
@@ -51,6 +54,7 @@ p{
 
 .title-product{
   margin: 1%;
+  padding: 1%;
   float: left;
   cursor: pointer;
   width: 15%;
@@ -76,9 +80,11 @@ p{
 }
 .config{
   position: relative;
-  margin: 15px;
+  margin: 1%;
   max-width: 14%;
+  min-width: 100px;
   max-height: 20%;
+  min-height: 10%;
   float: left;
 }
 
@@ -92,6 +98,7 @@ p{
   border-radius: 10px;
   margin: 2px;
   width: 49%;
+  min-width: 50px;
   font-size: 70%;
 }
 
@@ -101,6 +108,7 @@ p{
   border-radius: 10px;
   margin: 2px;
   width: 45%;
+  min-width: 50px;
   font-size: 70%;
 }
 
@@ -182,10 +190,20 @@ h1 {
 }
 
 .configb{
-  background-color: white;
   float: right;
-  margin-top: -3%;
-  margin-right: 3.5%;
-  cursor: pointer;
+  width: 20%;
 }
 
+.configr{
+  float: right;
+  width: 2.5%;
+  margin-right: 2%;
+  margin-bottom: -1%;
+  background-color: white;
+  border: 0;
+}
+
+.items button img{
+  width: 80%;
+  height: 80%;
+}
