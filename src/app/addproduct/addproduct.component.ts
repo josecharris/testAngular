@@ -36,6 +36,10 @@ export class AddproductComponent implements OnInit {
     });
   }
 
+  addProduct(): void{
+
+  }
+
   changeStatusTaxes(): void{
     this.showTaxes = !this.showTaxes;
   }
