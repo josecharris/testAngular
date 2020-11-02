@@ -20,8 +20,8 @@
   </div>
 
   <div class="margin-bottom">
-    <button type="button" class="btn btn-info cl" (click)="logout()">
-      <img src="assets\logout.png" alt="">
+    <button type="button" class="btn btn-info clb" (click)="logout()">
+      <img src="assets\logout.png" alt="" style="background-color: white;">
     </button>
   </div>
 </div>
@@ -29,11 +29,13 @@
 <div class="panel-container">
   <div class="card">
     <p class="title-product" (click)='mostrar()'><strong>Productos&nbsp;</strong><img src="assets\add.png" alt=""></p>
-    <!-- Medium input -->
-    <div>
-      <input type="text" class="form-control find" placeholder="Busca tu producto">
-      <button class="configb"><img src="assets\lupa.png" alt=""></button>
-    </div>
+
+    <p style="margin-top: -2%; margin-right: 3%;">
+      <button class="configr" type="submit">
+        <img src="assets/lupa.png" style="cursor: pointer;">
+      </button>
+      <input class="form-control configb" type="search" name="find" placeholder="Buscar producto">
+    </p>
 
     <div class="products">
 
