@@ -16,10 +16,8 @@ export class AddproductComponent implements OnInit {
   value: number;
   taxes: string[];
 
-  isSelected1 = false;
-  isSelected2 = false;
-  isSelected3 = false;
-  isSelected4 = false;
+  isSelected = [false, false, false, false];
+
 
   showTaxes = false;
   chain = new Array();
@@ -61,8 +59,8 @@ export class AddproductComponent implements OnInit {
   changeStatusS1(): void{
     const inpTaxes = (<HTMLInputElement>document.getElementById('taxes'));
 
-    this.isSelected1 = !this.isSelected1;
-    if (this.isSelected1){
+    this.isSelected[3] = !this.isSelected[3];
+    if (this.isSelected[3]){
       this.chain.push('1');
     }else if (this.chain.length !== 0){
       this.chain.splice(this.chain.indexOf('1'), 1);
@@ -71,8 +69,8 @@ export class AddproductComponent implements OnInit {
   }
   changeStatusS2(): void{
     const inpTaxes = (<HTMLInputElement>document.getElementById('taxes'));
-    this.isSelected2 = !this.isSelected2;
-    if (this.isSelected2){
+    this.isSelected[2] = !this.isSelected[2];
+    if (this.isSelected[2]){
       this.chain.push('2');
     }else if (this.chain.length !== 0){
       this.chain.splice(this.chain.indexOf('2'), 1);
@@ -81,8 +79,8 @@ export class AddproductComponent implements OnInit {
   }
   changeStatusS3(): void{
     const inpTaxes = (<HTMLInputElement>document.getElementById('taxes'));
-    this.isSelected3 = !this.isSelected3;
-    if (this.isSelected3){
+    this.isSelected[1] = !this.isSelected[1];
+    if (this.isSelected[1]){
       this.chain.push('3');
     }else if (this.chain.length !== 0){
       this.chain.splice(this.chain.indexOf('3'), 1);
@@ -91,8 +89,8 @@ export class AddproductComponent implements OnInit {
   }
   changeStatusS4(): void{
     const inpTaxes = (<HTMLInputElement>document.getElementById('taxes'));
-    this.isSelected4 = !this.isSelected4;
-    if (this.isSelected4){
+    this.isSelected[0] = !this.isSelected[0];
+    if (this.isSelected[0]){
       this.chain.push('4');
     }else if (this.chain.length !== 0){
       this.chain.splice(this.chain.indexOf('4'), 1);

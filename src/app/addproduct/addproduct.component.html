@@ -22,7 +22,8 @@
       <div *ngFor="let taxs of tax; let i=index">
         <!-- Default unchecked -->
         <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="{{ taxs.id }}" (click)="changeStatus(taxs.id)">
+          <input type="checkbox" class="custom-control-input" id="{{ taxs.id }}" (click)="changeStatus(taxs.id)"
+          [checked]="isSelected[i]">
           <label class="custom-control-label" for="{{ taxs.id }}">{{taxs.name}}</label>
         </div>
       </div>
