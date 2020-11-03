@@ -15,7 +15,8 @@
     </div>
     <div class="form-group">
       <label for="taxes">Impuestos</label>
-      <input type="text" class="form-control" id="taxes" aria-describedby="userh" (click)="changeStatusTaxes()" required>
+      <input type="text" class="form-control" id="taxes" aria-describedby="userh" (click)="changeStatusTaxes()"
+      placeholder="Click para mostrar y ocultar" readonly required>
     </div>
     <div *ngIf="showTaxes">
       <div *ngFor="let taxs of tax; let i=index">

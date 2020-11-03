@@ -18,3 +18,8 @@ input[type="checkbox"]:checked + label{
   background-color: white;
   color: #FAC54B;
 }
+
+label{
+  font-size: 12px;
+  color: gray;
+}
